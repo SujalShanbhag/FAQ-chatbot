@@ -1,0 +1,29 @@
+FAQ CHATBOT — USER MANUAL
+
+1. INSTALLATION
+Use Python 3.10+. Open PowerShell in this folder:
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+
+2. RUN
+streamlit run app.py
+Open the local URL displayed by Streamlit.
+
+3. ASK QUESTIONS
+Type a university-admission question and click Ask Chatbot. The answer is retrieved from the stored FAQ knowledge base.
+
+4. UNDERSTANDING THE RESULT
+A confident response displays the matched FAQ, category, confidence score and status. A low-confidence question receives a fallback response rather than an unrelated FAQ.
+
+5. ADD QUESTIONS
+Open faq_data.py. Add another dictionary with question, answer and category. Restart Streamlit to rebuild the TF-IDF vectors.
+
+6. NLP PIPELINE
+Text is lowercased, punctuation is removed, stopwords are removed, words are lemmatized, and TF-IDF vectors are created. Word and character similarities are combined before the confidence threshold is applied.
+
+7. IMPORTANT
+The chatbot is retrieval-based. It does not generate new answers. The included university-admission answers are generic sample content. For a real university, replace them with verified institutional FAQs.
+
+8. STOP
+Press Ctrl+C in the Streamlit terminal.
